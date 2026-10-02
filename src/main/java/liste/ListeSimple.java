@@ -4,9 +4,21 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /**
+     * Retourne le nombre d'éléments de la liste.
+     *
+     * @return le nombre d'éléments présents dans la liste
+     */
+
     public long getSize() {
         return size;
     }
+
+    /**
+     * Ajoute un élément en tête de liste et augmente sa taille de un.
+     *
+     * @param element la valeur à ajouter
+     */
 
     public void ajout(int element) {
         tete = new Noeud(element, tete);
