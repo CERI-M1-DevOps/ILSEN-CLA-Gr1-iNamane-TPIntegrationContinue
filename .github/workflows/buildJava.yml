@@ -17,5 +17,10 @@ jobs:
           java-version: '21'
           distribution: corretto
 
-      - name: Tester et construire le package
-        run: mvn -B package
+      - name: Tester et analyser avec SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: >
+          mvn -B verify
+          org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
